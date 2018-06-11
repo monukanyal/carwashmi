@@ -1913,7 +1913,7 @@ class Swebi extends CI_Controller
 						    break;
 
 						    case 'add_mycar_info':
-						    	if(!empty($actionn['user_id']) && !empty($actionn['vehicle_name']) && !empty($actionn['vehicle_make']) && !empty($actionn['vehicle_model']) && !empty($actionn['vehicle_model_year']) && !empty($actionn['vehicle_color']))
+						    	if(!empty($actionn['user_id']) && !empty($actionn['vehicle_name']) && !empty($actionn['vehicle_make']) && !empty($actionn['vehicle_model']) && !empty($actionn['vehicle_year']) && !empty($actionn['vehicle_color']))
 						    	{
 							    	$carinfo=array(
 											'customer_id'=>$actionn['user_id'],
