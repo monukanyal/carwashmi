@@ -1,0 +1,360 @@
+// Templage Defult Veriables
+@import "variable.less";
+
+// This File Import Some Helping Function
+@import "../bootstrap/less/variables.less";
+@import "less-function.less";
+
+
+@media (max-width: @screen-sm-max) {
+
+	/**
+	 * =======================
+	 * Navigation
+	 * =======================
+	 */
+	.main-navbar-top {
+		.navbar-nav {
+			li {
+				.btn-nav {
+				    padding: 15px;
+				}
+			}
+		}
+	}
+
+
+	/**
+	 * ====================================
+	 * Features Style 1
+	 * ====================================
+	 */
+	.features-section-1 {
+
+		.features-image {
+		    height: 100px;
+		}
+
+		.inner {
+			&.border {
+				padding: 20px 25px;
+			}
+		}
+	}
+	
+
+	/**
+	 * ====================================
+	 * Features Style 2 
+	 * ====================================
+	 */
+	.features-section-2 {
+
+		.section-header,
+		.detail p,
+		.btn-form {
+			text-align: center !important;
+		}
+
+		.inner {
+			margin-top: 0px;
+		}
+
+	    .btn-form {
+	    	margin-top: 80px;
+	    }
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 5
+	 * ====================================
+	 */
+	.features-section-5 {
+		.form-outer {
+			padding: 40px;
+		}
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 7
+	 * ====================================
+	 */
+	.features-section-7 {
+		.inner {
+			padding-right: 0px;
+		}
+
+		.section-heading,
+		.detail p {
+			text-align: center;
+		}
+	}
+
+
+
+	.pricing-table {
+		.each-table {
+			margin-bottom: 30px;
+
+			> .inner {
+				max-width: 370px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+		}
+	}
+
+	
+}
+
+
+@media (max-width: @screen-xs-max) {
+
+
+	/**
+	 * =======================
+	 * Navigation
+	 * =======================
+	 */
+	.main-navbar-top {
+		.navbar-header {
+			.navbar-brand {
+				margin-left: 15px;
+				height: 70px;
+			}
+		}
+
+		.navbar-collapse {
+			border: 1px solid;
+			border-color: fade(@dark-color, 8%);
+		}
+
+		.navbar-nav {
+			padding-top: 11px;
+			padding-right: 15px;
+
+			li {
+				float: left;
+
+				.btn-nav {
+				    padding: 0px 10px;
+				    line-height: 40px;
+				}
+			}
+		}
+	}
+
+
+
+	
+	/**
+	 * ====================================
+	 * Features Style 1
+	 * ====================================
+	 */
+	.features-section-1 {
+		.each-features {
+			.inner {
+				margin-bottom: 30px;
+				padding: 30px 15px;
+			}
+
+			&:nth-last-child(-n + 1) {
+				.inner {
+					margin-bottom: 0px;
+				}
+			}
+		}
+
+		.inner {
+			max-width: 370px;
+			margin-left: auto;
+			margin-right: auto;
+
+			&.border {
+				padding: 15px;
+
+				.title,
+				.detail p {
+					text-align: center;
+				}
+			}
+		}
+	}
+
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 4
+	 * ====================================
+	 */
+	.pricing-table {
+		.each-table {
+			.inner {
+				padding: 30px 15px;
+
+				.meta-price {
+					font-size: 60px;
+					line-height: 60px;
+				}
+
+				.category {
+				    left: 15px;
+				    right: 15px;
+				    top: 30px;
+				    font-size: 40px;
+				    line-height: 55px;
+				    letter-spacing: 1px;
+				}
+
+				.btn-form {
+					.btn {
+						margin: 0px !important;
+					}
+				}
+
+			}
+
+		}
+	}
+
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 5
+	 * ====================================
+	 */
+	.features-section-5 {
+		.form-outer {
+			padding: 30px 0px;
+		}
+	}
+
+
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 6
+	 * ====================================
+	 */
+	.features-section-6 {
+
+		.each-features {
+			.inner {
+				max-width: 370px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 8
+	 * ====================================
+	 */
+	.project-item {
+
+		.each-project {
+			.each-project-inner {
+				max-width: 370px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 45px;
+				padding-bottom: 45px;
+				border-bottom: 1px solid;
+				border-bottom-color: fade(@dark-color, 8%);
+			}
+
+			&:last-child {
+				.each-project-inner {
+					margin-bottom: 0;
+					padding-bottom: 0;
+					border-bottom: 0px solid;
+				}
+			}
+		}
+
+		.project-image {
+			position: relative;
+			height: 250px;
+			left: 0;
+			right: 0;
+			margin-bottom: 20px;
+		}
+
+		.inner {
+			padding: 0px !important;
+		}
+
+
+	}
+
+
+
+
+	/**
+	 * ====================================
+	 * Footer Section 1
+	 * ====================================
+	 */
+	.footer-section {
+
+		.each-item {
+			margin-top: 40px;
+
+			> .inner {
+				max-width: 370px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			&:first-child {
+				margin-top: 0px;
+			}
+
+			.social-icon {
+				margin-top: 25px;
+			}
+		}
+	}
+
+	.subscribe-form {
+		.input-group {
+			display: block;
+		}
+	}
+	
+}
+
+
+@media (max-width: 480px) {
+
+	
+}
+
+
+@media (max-width: 320px) {
+
+	
+}
+
