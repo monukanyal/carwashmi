@@ -1160,6 +1160,7 @@ class Swebi extends CI_Controller
 							$message = 'Success!';
 						}
 						break;
+						
 					case "getclientrequest":
 						$arr = $this->Api_model->getclientrequest($actionn['client_request_id']);
 						if(count($arr) > 0){
@@ -1422,10 +1423,7 @@ class Swebi extends CI_Controller
 						{
 							$this->Api_model->jobstatus($client_request_id,$userid,$rate=0);
 						}
-						if($status=='6')
-						{
-							$this->Api_model->jobstatus($client_request_id,$userid,$rate=0);
-						}
+						
 						if(isset($actionn['washer_rating']) && isset($actionn['washer_comment']))
 						{
 							$ratingdata['washer_rating'] = $actionn['washer_rating'];
@@ -1939,6 +1937,24 @@ class Swebi extends CI_Controller
 							    }
 						    break;
 
+						     case 'getcarinfo':
+						    	if(!empty($actionn['car_id']))
+						    	{
+									$car_id=$actionn['car_id'];
+									$result=$this->Api_model->get_car_info($car_id);
+									$message = 'Car details found'; 
+									$code = 200;
+									$response =$result;
+									$error = false;	
+							    }
+							    else
+							    {
+							    	$message = 'Please provide car id'; 
+									$code = 300;
+									$response ='';
+									$error = true;
+							    }
+						    break;
 				}
 				$arr = array('success'=> $message, 'code'=> $code, 'response'=> $response, 'error'=> $error);
 				$response = json_encode($arr);

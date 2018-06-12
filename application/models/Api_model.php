@@ -770,6 +770,7 @@ class Api_model extends CI_Model
 			$rows =  $this->db->affected_rows();
 			if($rows>0){
 				$uid = $this->db->insert_id();		
+				$this->update_washer_location($uid,$data['latitude'],$data['longitude']);
 				return true;
 			}else{
 				return FALSE;
@@ -1655,7 +1656,7 @@ class Api_model extends CI_Model
 	}
 	
 	function getservicdetail($client_request){
-		$qry = "SELECT 	vehicle_type, service_type,vehicle_make,vehicle_model,vehicle_model_year,vehicle_color FROM  client_request WHERE client_request_id = ".$client_request;
+		$qry = "SELECT 	vehicle_name, vehicle_type, service_type,vehicle_make,vehicle_model,vehicle_model_year,vehicle_color FROM  client_request WHERE client_request_id = ".$client_request;
 		$query = $this->db->query($qry);
 		$row = $query->result();
 		if(count($row) > 0){
@@ -1844,6 +1845,22 @@ class Api_model extends CI_Model
 		}
 	}
 
+	function get_car_info($car_id)
+	{
+		$this->db->select('*');
+		$this->db->from('my_vehical_info');
+		$this->db->where('id',$car_id);
+		$query=$this->db->get();
+		if($query->num_rows()>0)
+		{
+			$res=$query->result_array();
+			return $res[0];
+		}
+		else
+		{
+			return '';
+		}
+	}
 
 }
 ?>
