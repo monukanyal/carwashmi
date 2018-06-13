@@ -661,15 +661,63 @@ class Api_model extends CI_Model
 			$qry2 = "SELECT cr.* FROM client_request as cr WHERE cr.client_request_id = '".$request_id."'"; 
 			$query2 = $this->db->query($qry2);
 			$row2 = $query2->result();
-			$arrData['client_request'] = $row2[0];
+			if($row2)
+			{
+				$arrData['client_request'] = $row2[0];
+			
+			}
 			$qry3 = "SELECT * FROM users WHERE user_id = '".$row2[0]->user_id."'";
 		    $query3 = $this->db->query($qry3);
 		    $row3 = $query3->result();
 		    $arrData['clientUser'] = $row3[0];
+		    $qry4 = "SELECT * FROM service_charge_tbl";
+		    $query4 = $this->db->query($qry4);
+		    $row4 = $query4->result_array();
+		    $arrData['cancellation_fee']=$row4[0]['cancellation_fee'];
+
 			return $arrData;
 		}else{
 			return false;
 		}
+	}
+	
+	function clientrequestdetail2($request_id){
+			$arrData = array();
+			$qry2 = "SELECT cr.* FROM client_request as cr WHERE cr.client_request_id = '".$request_id."'"; 
+			$query2 = $this->db->query($qry2);
+			$row2 = $query2->result();
+			if($row2)
+			{
+				
+				if(($row2[0]->is_request_open==2) ||($row2[0]->is_request_open==4))
+				{
+
+						$arrData['job_cancel_status']=true; //go to home page
+					
+				}
+				else if(($row2[0]->is_request_open==10)||($row2[0]->is_request_open==3))
+				{
+					if($row2[0]->is_payment_done==1)
+					{
+						$arrData['job_cancel_status']=true;
+					}
+					else
+					{
+						$arrData['job_cancel_status']=false;	
+					}
+				}
+				else
+				{
+					$arrData['job_cancel_status']=false;
+				}
+
+
+				return $arrData;
+			}
+			else
+			{
+				return false;
+			}
 	}
 	
 	function addorder($data){ 
